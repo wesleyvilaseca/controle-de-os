@@ -22,11 +22,7 @@ public class ModuloConexao {
         String driver = "com.mysql.cj.jdbc.Driver";
 
         //armazenando informações referente ao banco
-        /*
-        String url = "jdbc:mysql://localhost:3306/OsSystem";
-        String user = "admin";
-        String password = "Admin123#";*/
-        
+       
         String url = "jdbc:mysql://localhost:3306/OsSystem";
         String user = "root";
         String password = "";
@@ -43,20 +39,4 @@ public class ModuloConexao {
         }
 
     }
-    /*  private String numeroQualquer;
-
-    /**
-     * @return the numeroQualquer
-     */
- /*public String getNumeroQualquer() {
-        return numeroQualquer;
-    }
-
-    /**
-     * @param numeroQualquer the numeroQualquer to set
-     */
- /*  public void setNumeroQualquer(String numeroQualquer) {
-        this.numeroQualquer = numeroQualquer;
-    }*/
-
 }
