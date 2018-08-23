@@ -63,34 +63,6 @@ public class TelaOs extends javax.swing.JInternalFrame {
         }
     }
 
-    //metodo falho
-
-    /* public void Exportando(TelaOs modulo) {
-        System.out.println("-------print tela os---------");
-        System.out.println(modulo.getNumeroQualquer());
-        String n = modulo.getNumeroQualquer();
-        System.out.println("-------variavel n---------");
-
-        System.out.println(n);
-        //String t = txtTecnicoOs.setText(modulo.getNumeroQualquer());
-        
-
-        //System.out.println("-------txt---------");
-
-        //System.out.println(txtTecnicoOs.getText()); 
-    
-    //o valor do jframe ou jframe internal chega na classe telaos porem não sei como fazer para ser utilizado e outro método alem deste
-
-    }*/
- /* public void recebeOutro(String recebe) {
-        txtTecnicoOs.setText(recebe);
-        String test = recebe;
-        System.out.println(test);
-        System.out.println(txtTecnicoOs.getText());
-        txtTecnicoOs.setText(test);
-        System.out.println("-------------");
-
-    }*/
     //metodo para pesquisar uma os
     //esse metodo recebe iformação da caixa de dialogo
     //este método foi feito para testas de os dados da pesquisa avançada chegavam aqui, porem ele não está sendo utilizado
@@ -134,6 +106,15 @@ public class TelaOs extends javax.swing.JInternalFrame {
                 btnEmitirOs.setEnabled(false);
                 txtProcurarClienteOs.setEditable(false);
                 tblClienteOs.setVisible(false);
+                
+                String rbtTipo = rs.getString(3);
+                if (rbtTipo.equals("Ordem de Serviço")) {
+                    btnGroupOrdemServicoOs.setSelected(true);
+                    tipo = "Ordem de Serviço";
+                } else {
+                    btnGroupOrcamentoOs.setSelected(true);
+                    tipo = "Oçamento";
+                }
 
                 //esta parte preencho o campo procurar cliente com o nome a que a os está vinculada
                 pst = conexao.prepareStatement(sqlNomeCliente);//aqui ali vai preeche o campo baseado no id
@@ -144,14 +125,7 @@ public class TelaOs extends javax.swing.JInternalFrame {
 
                 }
 
-                String rbtTipo = rs.getString(3);
-                if (rbtTipo.equals("Ordem de Serviço")) {
-                    btnGroupOrdemServicoOs.setSelected(true);
-                    tipo = "Ordem de Serviço";
-                } else {
-                    btnGroupOrcamentoOs.setSelected(true);
-                    tipo = "Oçamento";
-                }
+
 
             } else {
                 System.out.println("estou no else vou fechar e ativar a caixa de dialogo");
